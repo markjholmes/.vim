@@ -12,13 +12,17 @@ set foldcolumn=0 " add margin to left
 set cursorline " highlight cursor line underneath the cursor horizontally
 set splitbelow " open new vertical split bottom
 set splitright " open new horizontal splits right
-set showmode " show what mode we are currently in
 set cmdheight=1 " this is about how big that command line at the bottom is allowed to be
 set scrolloff=15 " Minimal number of screen lines to keep above and below the cursor
 set breakindent " Enable break indent
 set linebreak " dont break in the middle of words
 set wildmenu wildoptions=pum " little popup menu thing
-" set showmatch " Show matching brackets when text indicator is over them
+" set showmatch " Show matching brackets when text indicator is over them made
+" redundant by the rainbow brackets plugin
+set laststatus=2
+" set showmode " show what mode we are currently in
+set noshowmode " hide the current mode in the command line because we use plugin"
+set showcmd " see characters as they are typed
 
 " TAB BEHAVIOUR
 set tabstop=4 " number of visual spaces per TAB
@@ -59,7 +63,6 @@ inoremap " ""<Esc>ha
 inoremap ` ``<Esc>ha
 
 " PLUGINS THAT NEED TO WORK SOMEHOW -------------------------------------------
-" let mapleader=<CR> " leader key
 " vim.cmd([[autocmd BufNewFile,BufRead *.h set filetype=c]])
 " set inccommand=" split" " Preview substitutions live, as you type!
 " map , ':FloatermToggle<CR>' "Floaterm toggle
@@ -99,21 +102,22 @@ Plug 'JuliaEditorSupport/julia-vim' " julia language
 Plug 'luochen1990/rainbow' " bracket matching
 Plug 'voldikss/vim-floaterm' " make a floating terminal
 Plug 'prabirshrestha/vim-lsp' " LSP for vim
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'stevearc/conform.nvim' 
-Plug 'kaarmu/typst.vim' 
-Plug 'osyo-manga/vim-over'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf.vim'
+Plug 'mattn/vim-lsp-settings' " more LSP stuff 
+Plug 'prabirshrestha/asyncomplete.vim' " more LSP stuff
+Plug 'prabirshrestha/asyncomplete-lsp.vim' " more LSP stuff
+Plug 'stevearc/conform.nvim' " TODO: GET THE LINTING TO WORK
+Plug 'kaarmu/typst.vim' " Typst previews and rendering 
+Plug 'osyo-manga/vim-over' " substiution previews 
+Plug 'tpope/vim-fugitive' " git stuff
+Plug 'airblade/vim-gitgutter' " git diff in gutter on lhs
+Plug 'junegunn/fzf.vim' " fuzzy finding 
+Plug 'itchyny/lightline.vim' " status line at the bottom
 
 call plug#end()
 
-" PLUGIN CONFIGURATION
+" PLUGIN CONFIGURATION -------------------------------------------------------
 
 " slime
-
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_preserve_curpos = 0
@@ -128,3 +132,31 @@ let g:rainbow_active = 1 " rainbow brackets
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+" status bar
+function! MyHour()
+    return strftime("%H:%M")
+endfunction
+
+let g:lightline = {
+    \ 'active': {
+    \     'left': [ 
+    \         [ 'mode', 'paste' ],
+    \         [ 'gitbranch', 'readonly', 'filename', 'modified' ] 
+    \     ],
+    \     'right': [ 
+    \         [ 'hour' ],
+    \         [ 'lineinfo' ],
+    \         [ 'percent' ],
+    \         [ 'filetype' ], 
+    \     ]
+    \ },
+    \ 'component_function': {
+    \     'hour': 'MyHour',
+    \     'gitbranch': 'FugitiveHead'
+    \ },
+    \}
+
+" git gutter
+set signcolumn=yes " always have gutter there
+let g:gitgutter_set_sign_backgrounds = 1
