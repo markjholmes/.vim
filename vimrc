@@ -53,10 +53,11 @@ set nowb
 set noswapfile
 set noundofile
 
-" Enable filetype plugins
+" ENABLE FILETYPE PLUGINS ----------------------------------------------------
 syntax enable " syntax highlighting
 filetype plugin on
 filetype indent on
+runtime! ftplugin/man.vim " obviously only for c pages and run :Man whatever in vim to see
 
 " Set to auto read when a file is changed from the outside
 set autoread
