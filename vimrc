@@ -1,10 +1,13 @@
-" APPEARANCE -----------------------------------------------------------------
+" COLOR THEME ---------------------------------------------------------------
 
-" from https://github.com/Erichain/vim-monokai-pro
-colorscheme monokai_pro " color scheme
+" color scheme from https://github.com/Erichain/vim-monokai-pro
+colorscheme monokai_pro " 
+
 if $COLORTERM == 'gnome-terminal' " Enable 256 colors palette in Gnome Terminal
     set t_Co=256
 endif
+
+" APPEARANCE -----------------------------------------------------------------
 
 set number " add numbers to each line on the left side
 set nuw=4 " width of line number column
@@ -24,7 +27,7 @@ set laststatus=2
 set noshowmode " hide the current mode in the command line because we use plugin"
 set showcmd " see characters as they are typed
 
-" TIME BETWEEN UPDATES FOR
+" TIME BETWEEN UPDATES FOR E.G. THE GITSIGNS
 set updatetime=100 "waits 100 ms before checking things"
 
 " TAB BEHAVIOUR --------------------------------------------------------------
@@ -41,9 +44,10 @@ set hlsearch " highlight words as they are searched
 
 " HISTORY STUFF ---------------------------------------------------------------
 set history=500 " how much history to remember
-set undofile " save undo history
 
-" Turn backup off, since most stuff is in SVN, git etc. anyway...
+" Turn backup off because i hate having a million files and if i make a
+" huge mistake and also save and quit then that's just on me it's time for me
+" to wear my big boy pants
 set nobackup
 set nowb
 set noswapfile
@@ -63,12 +67,11 @@ inoremap { {}<Esc>ha
 inoremap ( ()<Esc>ha
 inoremap [ []<Esc>ha
 inoremap " ""<Esc>ha
-" inoremap ' ''<Esc>ha " this is annoying because i need apostrophes"
+" inoremap ' ''<Esc>ha " this is annoying because i need apostrophes
 inoremap ` ``<Esc>ha
 
 " PLUGINS THAT NEED TO WORK SOMEHOW -------------------------------------------
 " vim.cmd([[autocmd BufNewFile,BufRead *.h set filetype=c]])
-" set inccommand=" split" " Preview substitutions live, as you type!
 " map , ':FloatermToggle<CR>' "Floaterm toggle
 
 " KEYMAPS ---------------------------------------------------------------------
@@ -79,7 +82,7 @@ nmap <C-l> :bnext<CR>
 set switchbuf=useopen,usetab,newtab "behaviour when changing buffer"
 set stal=0 " show the other tabs at the top"
 
-"split window to the right
+" split window to the right
 nmap <C-S-Left> :vsplit<CR>
 nmap <C-S-Right> :vsplit<CR>
 nmap <C-S-Down> :split<CR>
@@ -90,11 +93,11 @@ nmap :W :w
 nmap :Q :q
 nmap :WQ :wq
 
-" VISUAL MODE
+" allow for mass indenting while in visual mode
 vmap < <gv
 vmap > >gv
 
-" FORMATTING
+" FORMATTING -----------------------------------------------------------------
 
 " C
 augroup CFormat
@@ -120,8 +123,8 @@ augroup END
 " julia
 augroup JuliaRunicFormat
     autocmd!
-    autocmd BufWritePost *.jl,*.julia silent !runic --inplace <afile>
-    autocmd BufWritePost *.jl,*.julia silent! edit!
+    autocmd BufWritePost *.jl silent !runic --inplace <afile>
+    autocmd BufWritePost *.jl silent! edit!
 augroup END
 
 " PLUGINS --------------------------------------------------------------------
@@ -139,7 +142,6 @@ Plug 'prabirshrestha/vim-lsp' " LSP for vim
 Plug 'mattn/vim-lsp-settings' " more LSP stuff 
 Plug 'prabirshrestha/asyncomplete.vim' " more LSP stuff
 Plug 'prabirshrestha/asyncomplete-lsp.vim' " more LSP stuff
-Plug 'stevearc/conform.nvim' " TODO: GET THE LINTING TO WORK
 Plug 'kaarmu/typst.vim' " Typst previews and rendering 
 Plug 'osyo-manga/vim-over' " substiution previews 
 Plug 'tpope/vim-fugitive' " git stuff
