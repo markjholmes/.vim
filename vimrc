@@ -27,13 +27,13 @@ set showcmd " see characters as they are typed
 " TIME BETWEEN UPDATES FOR
 set updatetime=100 "waits 100 ms before checking things"
 
-" TAB BEHAVIOUR
+" TAB BEHAVIOUR --------------------------------------------------------------
 set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing
 set shiftwidth=4 " insert 4 spaces on a tab
 set expandtab " tabs are spaces, mainly because of Python
 
-" SEARCHING
+" SEARCHING ------------------------------------------------------------------
 set incsearch " search as characters are entered
 set ignorecase " ignore case in searches by default
 set smartcase " but make it case sensitive if an uppercase is entered
@@ -58,7 +58,7 @@ filetype indent on
 set autoread
 au FocusGained,BufEnter * silent! checktime
 
-" ADD THE MATCHING BRACES WHEN TYPING
+" ADD THE MATCHING BRACES WHEN TYPING ----------------------------------------
 inoremap { {}<Esc>ha
 inoremap ( ()<Esc>ha
 inoremap [ []<Esc>ha
@@ -138,11 +138,11 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 " status bar
-function! MyHour()
+function! MyHour() " function defining how time is printed
     return strftime("%H:%M")
 endfunction
 
-let g:lightline = {
+let g:lightline = { " function defining what we want in the status bar
     \ 'active': {
     \     'left': [ 
     \         [ 'mode', 'paste' ],
