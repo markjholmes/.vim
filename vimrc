@@ -18,11 +18,14 @@ set breakindent " Enable break indent
 set linebreak " dont break in the middle of words
 set wildmenu wildoptions=pum " little popup menu thing
 " set showmatch " Show matching brackets when text indicator is over them made
-" redundant by the rainbow brackets plugin
+    " redundant by the rainbow brackets plugin
 set laststatus=2
 " set showmode " show what mode we are currently in
 set noshowmode " hide the current mode in the command line because we use plugin"
 set showcmd " see characters as they are typed
+
+" TIME BETWEEN UPDATES FOR
+set updatetime=100 "waits 100 ms before checking things"
 
 " TAB BEHAVIOUR
 set tabstop=4 " number of visual spaces per TAB
@@ -44,6 +47,7 @@ set undofile " save undo history
 set nobackup
 set nowb
 set noswapfile
+set noundofile
 
 " Enable filetype plugins
 syntax enable " syntax highlighting
