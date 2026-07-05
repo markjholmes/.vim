@@ -64,6 +64,8 @@ set autoread
 au FocusGained,BufEnter * silent! checktime
 
 " ADD THE MATCHING BRACES WHEN TYPING ----------------------------------------
+" ino=insert mode. actuall it is :im for insert mode MAP and then they just
+" seemed to go up alphabetically so the next was :in?
 inoremap { {}<Esc>ha
 inoremap ( ()<Esc>ha
 inoremap [ []<Esc>ha
