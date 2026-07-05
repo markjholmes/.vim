@@ -94,6 +94,36 @@ nmap :WQ :wq
 vmap < <gv
 vmap > >gv
 
+" FORMATTING
+
+" C
+augroup CFormat
+    autocmd!
+    autocmd BufWritePost *.c,*.h silent !clang-format <afile> --i
+    autocmd BufWritePost *.c,*.h silent! edit!
+augroup END
+
+" R
+augroup RFormat
+    autocmd!
+    autocmd BufWritePost *.r silent !air format <afile> 
+    autocmd BufWritePost *.r silent! edit!
+augroup END
+
+" python
+augroup PythonFormat
+    autocmd!
+    autocmd BufWritePost *.py silent !black <afile> --quiet
+    autocmd BufWritePost *.py silent! edit!
+augroup END
+
+" julia
+augroup JuliaRunicFormat
+    autocmd!
+    autocmd BufWritePost *.jl,*.julia silent !runic --inplace <afile>
+    autocmd BufWritePost *.jl,*.julia silent! edit!
+augroup END
+
 " PLUGINS --------------------------------------------------------------------
 
 " List plugins to install
@@ -142,7 +172,8 @@ function! MyHour() " function defining how time is printed
     return strftime("%H:%M")
 endfunction
 
-let g:lightline = { " function defining what we want in the status bar
+" function defining what we want in the status bar
+let g:lightline = { 
     \ 'active': {
     \     'left': [ 
     \         [ 'mode', 'paste' ],
