@@ -151,10 +151,14 @@ Plug 'tpope/vim-fugitive' " git stuff
 Plug 'airblade/vim-gitgutter' " git diff in gutter on lhs
 Plug 'junegunn/fzf.vim' " fuzzy finding 
 Plug 'itchyny/lightline.vim' " status line at the bottom
+Plug 'sakshamgupta05/vim-todo-highlight'
 
 call plug#end()
 
 " PLUGIN CONFIGURATION -------------------------------------------------------
+
+" floaterm
+nmap <C-f> :FloatermToggle<CR>
 
 " slime
 let g:slime_target = "tmux"
@@ -200,3 +204,15 @@ let g:lightline = {
 " git gutter
 set signcolumn=yes " always have gutter there
 let g:gitgutter_set_sign_backgrounds = 1
+
+" TODO: comments
+" let g:todo_highlight_config = {
+"       \   'REVIEW': {},
+"       \   'NOTE': {
+"       \     'gui_fg_color': '#ffffff',
+"       \     'gui_bg_color': '#ffbd2a',
+"       \     'cterm_fg_color': 'white',
+"       \     'cterm_bg_color': '214'
+"       \   }
+"       \ }
+

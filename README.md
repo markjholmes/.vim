@@ -23,3 +23,13 @@ There are some formatters to install to get the autocommands working
 4. R: air from [here](https://posit-dev.github.io/air/cli.html)
 
 I don't use any packages to do this, just an autocommand in `vimrc`
+
+# System clipboard
+
+Make sure that the system clipboard is accessible with
+
+```
+sudo apt install vim-gtk3
+```
+
+
