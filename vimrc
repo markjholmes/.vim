@@ -52,6 +52,7 @@ set nobackup
 set nowb
 set noswapfile
 set noundofile
+set hidden
 
 " ENABLE FILETYPE PLUGINS ----------------------------------------------------
 syntax enable " syntax highlighting
