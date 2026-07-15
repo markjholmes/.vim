@@ -74,6 +74,14 @@ inoremap " ""<Esc>ha
 " inoremap ' ''<Esc>ha " this is annoying because i need apostrophes
 inoremap ` ``<Esc>ha
 
+" DON'T ADD THE BRACKET IF WE'RE ON TOP OF ONE ALREADY, INSTEAD MOVE RIGHT
+" from here: https://vi.stackexchange.com/a/15601
+inoremap <expr> } getline('.')[getpos('.')[2] - 1] == '}' ? '<Right>' : '}'
+inoremap <expr> ) getline('.')[getpos('.')[2] - 1] == ')' ? '<Right>' : ')'
+inoremap <expr> ] getline('.')[getpos('.')[2] - 1] == ']' ? '<Right>' : ']'
+inoremap <expr> " getline('.')[getpos('.')[2] - 1] == '"' ? '<Right>' : '"'
+inoremap <expr> ` getline('.')[getpos('.')[2] - 1] == '`' ? '<Right>' : '`'
+
 " PLUGINS THAT NEED TO WORK SOMEHOW -------------------------------------------
 " vim.cmd([[autocmd BufNewFile,BufRead *.h set filetype=c]])
 " map , ':FloatermToggle<CR>' "Floaterm toggle
