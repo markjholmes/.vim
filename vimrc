@@ -189,7 +189,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 " status bar
-function! MyHour() " function defining how time is printed
+function! GetTime() " function defining how time is printed
     return strftime("%H:%M")
 endfunction
 
@@ -208,7 +208,7 @@ let g:lightline = {
     \     ]
     \ },
     \ 'component_function': {
-    \     'hour': 'MyHour',
+    \     'hour': 'GetTime',
     \     'gitbranch': 'FugitiveHead'
     \ },
     \}
