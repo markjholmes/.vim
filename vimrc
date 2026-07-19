@@ -9,6 +9,7 @@ endif
 
 " APPEARANCE -----------------------------------------------------------------
 
+set encoding=UTF-8 " don't know why
 set number " add numbers to each line on the left side
 set nuw=4 " width of line number column
 set foldcolumn=0 " add margin to left
@@ -161,6 +162,8 @@ Plug 'airblade/vim-gitgutter' " git diff in gutter on lhs
 Plug 'junegunn/fzf.vim' " fuzzy finding 
 Plug 'itchyny/lightline.vim' " status line at the bottom
 Plug 'sakshamgupta05/vim-todo-highlight'
+Plug 'ryanoasis/vim-devicons' " file tree icons NEEDS NERD ICONS
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -225,3 +228,6 @@ let g:gitgutter_set_sign_backgrounds = 1
 "       \   }
 "       \ }
 
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
