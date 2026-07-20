@@ -90,17 +90,17 @@ inoremap <expr> ` getline('.')[getpos('.')[2] - 1] == '`' ? '<Right>' : '`'
 " KEYMAPS ---------------------------------------------------------------------
 
 " navigate buffers
-nmap <C-h> :bprev<CR>
-nmap <C-l> :bnext<CR>
 set switchbuf=useopen,usetab,newtab "behaviour when changing buffer"
 set stal=0 " show the other tabs at the top"
+nmap <C-h> :bprev<CR>
+nmap <C-l> :bnext<CR>
 
 " split window to the right
 " NOTE: I NEVER USE THIS SO REPLACE WITH WINDOW SWITCHING
-nmap <C-S-Left> :vsplit<CR>
-nmap <C-S-Right> :vsplit<CR>
-nmap <C-S-Down> :split<CR>
-nmap <C-S-Up> :split<CR>
+nmap <C-S-Left> :vertical resize -1<CR>
+nmap <C-S-Right> :vertical resize +1<CR>
+" nmap <C-S-Down> :split<CR>
+" nmap <C-S-Up> :split<CR>
 
 " allow W/Q to be w/q because I make that typo a lot
 nmap :W :w
@@ -219,6 +219,7 @@ let g:lightline = {
 set signcolumn=yes " always have gutter there
 let g:gitgutter_set_sign_backgrounds = 1
 
+" NOTE: 
 " TODO: comments
 " let g:todo_highlight_config = {
 "       \   'REVIEW': {},
@@ -237,11 +238,11 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 " vim repl
 let g:mapleader=' '
 let g:repl_program = {
-            \   'python': 'ipython',
             \   'default': 'fish',
+            \   'python': 'ipython',
             \   'r': 'radian',
-            \   'vim': 'vim -e',
             \   'julia': 'julia --project=.',
+            \   'vim': 'vim -e',
             \   }
 
 nnoremap <leader>r :REPLToggle<CR>
