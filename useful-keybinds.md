@@ -26,7 +26,7 @@ I can create multiple windows in Vim and the REPL can also be made to use one of
 ## REPL and floating terminal
 
 - `CTRL-f`: Toggle the foating terminal
-- `<LEADER> r`: Toggle the repl window
-- `<LEADER> e`: Terminate the repl
-- `<LEADER> n`: Toggle the nerd tree file navigator
+- `LEADER r`: Toggle the repl window
+- `LEADER e`: Terminate the repl
+- `LEADER n`: Toggle the nerd tree file navigator
 

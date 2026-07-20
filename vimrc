@@ -219,17 +219,19 @@ let g:lightline = {
 set signcolumn=yes " always have gutter there
 let g:gitgutter_set_sign_backgrounds = 1
 
-" NOTE: 
+" REVIEW: 
 " TODO: comments
-" let g:todo_highlight_config = {
-"       \   'REVIEW': {},
-"       \   'NOTE': {
-"       \     'gui_fg_color': '#ffffff',
-"       \     'gui_bg_color': '#ffbd2a',
-"       \     'cterm_fg_color': 'white',
-"       \     'cterm_bg_color': '214'
-"       \   }
-"       \ }
+let g:todo_highlight_config = {
+      \   'REVIEW': {
+      \     'cterm_bg_color': '#111111',
+      \ },
+      \   'NOTE': {
+      \     'gui_fg_color': '#000000',
+      \     'gui_bg_color': '#ffffff',
+      \     'cterm_fg_color': 'white',
+      \     'cterm_bg_color': 'black'
+      \   }
+      \ }
 
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
