@@ -96,6 +96,7 @@ set switchbuf=useopen,usetab,newtab "behaviour when changing buffer"
 set stal=0 " show the other tabs at the top"
 
 " split window to the right
+" NOTE: I NEVER USE THIS SO REPLACE WITH WINDOW SWITCHING
 nmap <C-S-Left> :vsplit<CR>
 nmap <C-S-Right> :vsplit<CR>
 nmap <C-S-Down> :split<CR>
@@ -164,6 +165,7 @@ Plug 'itchyny/lightline.vim' " status line at the bottom
 Plug 'sakshamgupta05/vim-todo-highlight'
 Plug 'ryanoasis/vim-devicons' " file tree icons NEEDS NERD ICONS
 Plug 'preservim/nerdtree'
+Plug 'sillybun/vim-repl'
 
 call plug#end()
 
@@ -231,3 +233,21 @@ let g:gitgutter_set_sign_backgrounds = 1
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+" vim repl
+let g:mapleader=' '
+let g:repl_program = {
+            \   'python': 'ipython',
+            \   'default': 'fish',
+            \   'r': 'radian',
+            \   'vim': 'vim -e',
+            \   'julia': 'julia --project=.',
+            \   }
+
+nnoremap <leader>r :REPLToggle<CR>
+nnoremap <leader>e :REPLSendSession<CR>
+let g:repl_position = 3
+let g:repl_width = 60
+
+" nerdtree
+nnoremap <leader>n :NERDTreeToggle<CR>
