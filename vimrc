@@ -148,7 +148,7 @@ augroup END
 call plug#begin()
 
 Plug 'tpope/vim-commentary' " comment highlighting
-Plug 'jpalardy/vim-slime' " REPL
+" Plug 'jpalardy/vim-slime' " REPL
 Plug 'JuliaEditorSupport/julia-vim' " julia language
 Plug 'luochen1990/rainbow' " bracket matching
 Plug 'voldikss/vim-floaterm' " make a floating terminal
@@ -175,12 +175,12 @@ call plug#end()
 nmap <C-f> :FloatermToggle<CR>
 
 " slime
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
-let g:slime_preserve_curpos = 0
-let g:slime_dont_ask_default = 1
-let g:slime_python_ipython = 1
-let g:slime_bracketed_paste = 1
+" let g:slime_target = "tmux"
+" let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+" let g:slime_preserve_curpos = 0
+" let g:slime_dont_ask_default = 1
+" let g:slime_python_ipython = 1
+" let g:slime_bracketed_paste = 1
 
 " rainbow
 let g:rainbow_active = 1 " rainbow brackets

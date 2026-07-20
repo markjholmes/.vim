@@ -1,51 +1,32 @@
 # Built-in keybinds
 
-There are a lot of base key binds that I need to remember that are easier to write down here
+There are a lot of base key binds that I need to remember that are easier to write down here. The custom ones are also in [vimrc](vimrc) but whatever it's good to have them here
+
+## General
+
+We use the leader key a lot, and it's mapped to SPACE
 
 ## Windows
 
 I can create multiple windows in Vim and the REPL can also be made to use one of these. 
 
-Navigate between up/down/left/right windows with
-
-- `CTRL-W <Down>`; `CTRL-W CTRL-J`; `CTRL-W j`: Move cursor to Nth window below current one.  Uses the cursor position to select between alternatives.
-- CTRL-W <Up>; CTRL-W CTRL-K; CTRL-W k: Move cursor to Nth window above current one.  Uses the cursor position to select between alternatives.
-- `CTRL-W <Left>`; `CTRL-W CTRL-H`; `CTRL-W <BS>`; `CTRL-W h`: Move cursor to Nth window left of current one. Uses the cursor position to select between alternatives.
-- `CTRL-W <Right>`; `CTRL-W CTRL-L`; `CTRL-W l`: Move cursor to Nth window right of current one.  Uses the cursor position to select between alternatives.
+- `CTRL-w <Down>`; `CTRL-w CTRL-j`; `CTRL-w j`: Move cursor to Nth window below current one
+- `CTRL-w <Up>`; `CTRL-w CTRL-k`; `CTRL-w k`: Move cursor to Nth window above current one
+- `CTRL-w <Left>`; `CTRL-w CTRL-h`; `CTRL-w <BS>`; `CTRL-w h`: Move cursor to Nth window left of current one
+- `CTRL-w <Right>`; `CTRL-w CTRL-l`; `CTRL-w l`: Move cursor to Nth window right of current one
 - `CTRL-SHIFT-<Left>`; `CTRL-SHIFT-<Right>` : Split new window horizontally
 - `CTRL-SHIFT-<Down>`; `CTRL-SHIFT-<Up>` : Split new window vertically
-- `<NUMBER> CTRL-W |`: Resize current horizontal split to NUMBER characters
+- `<NUMBER> CTRL-w |`: Resize current horizontal split to NUMBER characters
 
-# Custom keybinds
+## Buffer navigation
 
-This is also in [vimrc](vimrc) but whatever
+- `CTRL-h`: Go to left buffer
+- `CTRL-l`: Go to right buffer
 
-## General
+## REPL and floating terminal
 
-We use the leader key a lot, and it's mapped to space
+- `CTRL-f`: Toggle the foating terminal
+- `<LEADER> r`: Toggle the repl window
+- `<LEADER> e`: Terminate the repl
+- `<LEADER> n`: Toggle the nerd tree file navigator
 
-```
-let g:mapleader=' '
-```
-
-## Normal mode
-
-Buffer navigation with
-
-```
-CTRL-H Go to left buffer
-CTRL-L Go to right buffer
-```
-
-:W :w
-:Q :q
-:WQ :wq
-<C-f> :FloatermToggle<CR>
-<leader>r :REPLToggle<CR>
-<leader>e :REPLSendSession<CR>
-<leader>n :NERDTreeToggle<CR>
-
-# Visual mode
-
-vmap < <gv
-vmap > >gv
