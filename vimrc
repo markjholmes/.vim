@@ -173,6 +173,7 @@ call plug#end()
 
 " floaterm
 nmap <C-f> :FloatermToggle<CR>
+let g:floaterm_shell = 'fish'
 
 " slime
 " let g:slime_target = "tmux"
@@ -246,11 +247,11 @@ let g:repl_program = {
             \   'julia': 'julia --project=.',
             \   'vim': 'vim -e',
             \   }
+let g:repl_position = 3
+let g:repl_width = 60
 
 nnoremap <leader>r :REPLToggle<CR>
 nnoremap <leader>e :REPLSendSession<CR>
-let g:repl_position = 3
-let g:repl_width = 60
 
 " nerdtree
 nnoremap <leader>n :NERDTreeToggle<CR>
