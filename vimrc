@@ -166,6 +166,7 @@ Plug 'sakshamgupta05/vim-todo-highlight'
 Plug 'ryanoasis/vim-devicons' " file tree icons NEEDS NERD ICONS
 Plug 'preservim/nerdtree'
 Plug 'sillybun/vim-repl'
+Plug 'bullets-vim/bullets.vim'
 
 call plug#end()
 
@@ -235,8 +236,8 @@ let g:todo_highlight_config = {
       \ }
 
 " Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " vim repl
 let g:mapleader=' '
@@ -244,7 +245,7 @@ let g:repl_program = {
             \   'default': 'fish',
             \   'python': 'ipython',
             \   'r': 'radian',
-            \   'julia': 'julia --project=.',
+            \   'julia': 'julia --project=. --threads=10',
             \   'vim': 'vim -e',
             \   }
 let g:repl_position = 3
