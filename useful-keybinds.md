@@ -16,7 +16,9 @@ I can create multiple windows in Vim and the REPL can also be made to use one of
 - `CTRL-w <Right>`; `CTRL-w CTRL-l`; `CTRL-w l`: Move cursor to Nth window right of current one
 - `CTRL-SHIFT-<Left>`; `CTRL-SHIFT-<Right>` : Split new window horizontally
 - `CTRL-SHIFT-<Down>`; `CTRL-SHIFT-<Up>` : Split new window vertically
-- `<NUMBER> CTRL-w |`: Resize current horizontal split to NUMBER characters
+- `<NUMBER> CTRL-W |`: Resize current horizontal split to NUMBER characters
+- `CTRL-W-W`: Switch between windows
+- `CTRL-W =`: Make all windows same size
 
 ## Buffer navigation
 

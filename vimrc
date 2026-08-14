@@ -55,11 +55,22 @@ set noswapfile
 set noundofile
 set hidden
 
+" GVIM settings
+set guioptions -=m " menu bar off
+set guioptions -=T " tool bar off
+set guioptions -=r  " scroll bar off
+set guioptions -=l  " scroll bar off
+set guioptions -=L  " scroll bar off
+set guifont=Monospace\ Regular\ 12
+
 " ENABLE FILETYPE PLUGINS ----------------------------------------------------
 syntax enable " syntax highlighting
 filetype plugin on
 filetype indent on
 runtime! ftplugin/man.vim " obviously only for c pages and run :Man whatever in vim to see
+
+" spellcheck
+autocmd FileType latex,tex,md,markdown,typst setlocal spell
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -256,3 +267,6 @@ nnoremap <leader>e :REPLSendSession<CR>
 
 " nerdtree
 nnoremap <leader>n :NERDTreeToggle<CR>
+
+" vim bullets
+let g:bullets_enabled_file_types = ['markdown', 'text', 'gitcommit', 'quarto', 'typst']
