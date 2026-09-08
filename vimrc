@@ -105,6 +105,7 @@ set switchbuf=useopen,usetab,newtab "behaviour when changing buffer"
 set stal=0 " show the other tabs at the top"
 nmap <C-h> :bprev<CR>
 nmap <C-l> :bnext<CR>
+autocmd TerminalOpen * setlocal nobuflisted
 
 " split window to the right
 " NOTE: I NEVER USE THIS SO REPLACE WITH WINDOW SWITCHING
@@ -121,6 +122,10 @@ nmap :WQ :wq
 " allow for mass indenting while in visual mode
 vmap < <gv
 vmap > >gv
+
+" TERMINAL -------------------------------------------------------------------
+
+nmap :wt :vert term
 
 " FORMATTING -----------------------------------------------------------------
 
