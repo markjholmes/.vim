@@ -165,6 +165,7 @@ augroup END
 
 call plug#begin()
 
+Plug 'moll/vim-bbye' " prevent stupid buffer behaviour where it kills terminal
 Plug 'tpope/vim-commentary' " comment highlighting
 Plug 'JuliaEditorSupport/julia-vim' " julia language
 Plug 'luochen1990/rainbow' " bracket matching
@@ -188,6 +189,10 @@ Plug 'bullets-vim/bullets.vim'
 call plug#end()
 
 " PLUGIN CONFIGURATION -------------------------------------------------------
+
+" moll/vim-bbye
+nnoremap :bd :Bdelete
+
 
 " repl
 nnoremap :T :REPLToggle<CR>
