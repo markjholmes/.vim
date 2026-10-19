@@ -166,7 +166,6 @@ augroup END
 call plug#begin()
 
 Plug 'tpope/vim-commentary' " comment highlighting
-" Plug 'jpalardy/vim-slime' " REPL
 Plug 'JuliaEditorSupport/julia-vim' " julia language
 Plug 'luochen1990/rainbow' " bracket matching
 Plug 'voldikss/vim-floaterm' " make a floating terminal
@@ -190,17 +189,13 @@ call plug#end()
 
 " PLUGIN CONFIGURATION -------------------------------------------------------
 
+" repl
+nnoremap :T :REPLToggle<CR>
+nnoremap <C-s> :SendLineToREPL<CR>
+vnoremap <C-s> :SendLineToREPL<CR>
+
 " floaterm
 nmap <C-f> :FloatermToggle<CR>
-let g:floaterm_shell = 'fish'
-
-" slime
-" let g:slime_target = "tmux"
-" let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
-" let g:slime_preserve_curpos = 0
-" let g:slime_dont_ask_default = 1
-" let g:slime_python_ipython = 1
-" let g:slime_bracketed_paste = 1
 
 " rainbow
 let g:rainbow_active = 1 " rainbow brackets
@@ -208,7 +203,7 @@ let g:rainbow_active = 1 " rainbow brackets
 " lsp stuff
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 " status bar
 function! GetTime() " function defining how time is printed
