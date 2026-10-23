@@ -195,7 +195,7 @@ nnoremap :bd :Bdelete
 
 
 " repl
-nnoremap :T :REPLToggle<CR>
+nnoremap <S-t> :REPLToggle<CR>
 nnoremap <C-s> :SendLineToREPL<CR>
 vnoremap <C-s> :SendLineToREPL<CR>
 
